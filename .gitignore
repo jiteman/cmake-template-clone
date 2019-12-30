@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# qt-creator
+CMakeLists.txt.user
+CMakeLists.txt.user.*
