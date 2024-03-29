@@ -1,5 +1,12 @@
-# cmake-template-clone
-Clone of https://github.com/district10/cmake-templates
+To c++/cmake users:
+
+-    It's much better to bind your c++ code to python, then test/debug in python side
+-    I would recommend <https://github.com/pybind/scikit_build_example>
+    - or my small binding repos: [concave-hull](https://github.com/cubao/concave_hull), [pixelmatch](https://github.com/cubao/pybind11_pixelmatch)
+-    This repo is old, for modern cmake, see: <https://cliutils.gitlab.io/modern-cmake> ([中文版本](https://modern-cmake-cn.github.io/Modern-CMake-zh_CN/))
+
+
+---
 
 # cmake-templates
 
@@ -379,7 +386,7 @@ This part is called CMake in Action.
     -   for Linux, link `*.a`, `*.so` files, set `rpath`
     -   *etc.*
 
-## 5. Snippets
+## 5. Snippets & Helper Functions
 
 cpp -> exe
 
@@ -391,6 +398,13 @@ foreach( src ${SRCS} )
     add_executable( ${exe} ${src} )
 endforeach( src )
 ```
+
+ There are some utility functions in [`utilities.cmake`](utilities.cmake), use `include(utilities.cmake)` to include, then use
+ - `print_include_directories()` to print all included directories,
+ - `print_all_linked_libraries(your_exe_or_lib)` to print all linked libs,
+ - `print_all_variables()` to print all variables
+
+Tip, use `cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=YES ..` to generate compile commands (a json file).
 
 ## 6. ReadingList
 
